@@ -1,0 +1,79 @@
+.project-flex{
+    padding: 20px;
+    padding-left: 5em;
+    padding-right: 5em;
+}
+.spa-app img{
+    height: 14em;
+    width: 23em;
+    border-radius: 15px;
+    object-fit: cover;
+}
+.spa-app{
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    border: 1px solid gray;
+  background:rgb(17, 17, 30);
+  padding: 20px;
+  border-radius: 20px;
+  
+}
+.spa-para{
+    width: 60%;
+}
+.spa-para h1{
+    font-size: 1.3em;
+    color: white;
+}
+.spa-para button{
+    padding: 10px;
+    border-radius: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.tech-used{
+    display: flex;
+    gap:10px ;
+}
+.tech-used p{
+    background-color:rgb(67, 72, 88) ;
+width: fit-content;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 30px;
+    color: white;
+}
+@media(max-width:1108px){
+
+    
+    .spa-para{
+        width: 70%;
+    }
+}
+@media(max-width:1064px){
+.spa-app img{
+    margin-top: 10px;
+}
+}
+@media(max-width:962px){
+    .spa-app{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        width: 22em;
+        padding: 30px;
+        
+    }
+    .spa-para{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+   
+}

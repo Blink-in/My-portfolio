@@ -1,0 +1,99 @@
+
+
+.profile{
+    height:18em ;
+    width: 17em;
+    border: 3px solid rgb(46, 46, 77);
+    border-radius: 20px;
+    object-fit: cover;
+}
+.herosec li{
+    list-style-type: none;
+    border: 2px solid rgb(11, 84, 229);
+    border-radius: 30px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 0.9em;
+    width: fit-content;
+}
+.herosec h1{
+    font-size: 220%;
+}
+.heropara{
+    font-size: 0.88em;
+}
+.btn1{
+background-color: rgb(44, 91, 186);
+width: 8em;
+border: none;
+padding-bottom: 10px;
+padding-top: 10px;
+border-radius: 10px;
+font-size: 0.9em;
+color: white;
+transition: 0.5s ease;
+}
+.btn2{
+background-color: rgb(44, 91, 186, 0.2);
+width: 8em;
+border: none;
+padding-bottom: 10px;
+padding-top: 10px;
+border-radius: 10px;
+font-size: 0.9em;
+color: white;
+transition: 0.5s ease;
+}
+.hero-btn button:hover{
+    opacity: 0.5;
+}
+.herosec{
+    width: 35%;
+    margin-top: 20px;
+}
+.hero-btn{
+    display: flex;
+    gap: 20px;
+}
+.mainhero{
+    display: flex;
+    justify-content: center;
+    gap: 4em;
+
+}
+@media (max-width: 950px) {
+
+    .mainhero{
+        display: flex;
+        justify-content: center;
+        gap: 3em;
+    }
+    .herosec{
+    width: 40%;
+    margin-top: 20px;
+}
+
+}
+@media(max-width: 830px){
+ .mainhero{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}   
+.herosec{
+ width: 60%;
+text-align: center;
+}
+.herosec li{
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+.hero-btn{
+   display: flex;
+   justify-content: center;
+}
+} 
