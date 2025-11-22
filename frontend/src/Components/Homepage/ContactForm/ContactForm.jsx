@@ -190,26 +190,54 @@ const ContactForm = () => {
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [snackbarSuccess, setSnackbarSuccess] = useState("success");
 
+
+
+  // Email validation function
+  const isValidEmail = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Email validation check
+    if (!isValidEmail(email)) {
+      setSnackbarSuccess("error");
+      setSnackbarMessage("Invalid email address");
+      setOpenSnackbar(true);
+      return;
+    }
+
     try {
       const response = await axios.post(
         "http://localhost:9000/api/portfolio/contact",
         { name, email, message }
       );
-      setSnackbarMessage(response.data.message);
-      setSnackbarSuccess("success");
-      setOpenSnackbar(true);
+
+      if (response.status === 200 || response.status === 201) {
+        setSnackbarSuccess("success");
+        setSnackbarMessage("Message sent successfully!");
+        setOpenSnackbar(true);
+
+        // Reset form
+        setName("");
+        setEmail("");
+        setMessage("");
+      }
     } catch (error) {
+      setSnackbarSuccess("error");
       setSnackbarMessage(
         error.response?.data?.message || "Message failed. Please try again."
       );
-      setSnackbarSuccess("error");
       setOpenSnackbar(true);
     }
   };
 
   const handleCloseSnackbar = () => setOpenSnackbar(false);
+
+  
+
 
   const containerVariants = {
     hidden: { opacity: 0 },

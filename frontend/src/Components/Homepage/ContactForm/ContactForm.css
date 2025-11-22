@@ -86,3 +86,11 @@
 TextField{
     color: white;
 }    
+@media(max-width:870px){
+  .form-des{
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 30px;
+    width: 100%;
+    
+  }
+}
