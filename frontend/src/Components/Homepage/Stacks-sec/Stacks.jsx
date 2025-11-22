@@ -10,18 +10,44 @@ import express from "../../../assets/expressjs.svg";
 import mongodb from "../../../assets/mongodb.svg";
 import git from "../../../assets/git.svg";
 import github from "../../../assets/github.svg";
+import { motion } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
 
 
 
 const Stacks = () => {
+   const { ref, inView } = useInView({ threshold: 0.15, triggerOnce: true })
+  
+    const containerVariants = {
+      hidden: { opacity: 0, y: 20 },
+      visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+          when: "beforeChildren",
+          staggerChildren: 0.12,
+          duration: 0.6
+        }
+      }
+    }
+  
+    const itemVariants = {
+      hidden: { opacity: 0, y: 12 },
+      visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+    }
   return (
-    <div id='stacks'>
-      <div className='stack-container'>
+    <motion.div 
+        ref={ref}
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+    id='stacks'>
+      <motion.div className='stack-container' variants={itemVariants}>
         <p>
             My Stacks
         </p>
         <h1>Technologies I Work With</h1>
-        <div className='stack-flex'>
+        <motion.div className='stack-flex' variants={itemVariants}>
             <img src={html} alt="" />
             <img src={css} alt="" />
             <img src={javascript} alt="" />
@@ -31,9 +57,9 @@ const Stacks = () => {
             <img src={mongodb} alt="" />
             <img src={git} alt="" />
             <img src={github} alt="" />
-        </div>
-      </div>
-    </div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
   )
 }
 
